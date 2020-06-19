@@ -7,41 +7,42 @@
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation.min.css'>
     <link rel='stylesheet' href='foundation-flex.css'>
-    <link rel="stylesheet" href='style.css'>
+    <link rel="stylesheet" href='Project1.css'>
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-
-
 
 </head>
 <body>
     <div class="header">
         <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
             <a class="pure-menu-heading" href="">Date Night </a><a style="color:red">&hearts;</a>
-    
-            <ul class="pure-menu-list">
-                <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Movies</a></li>
-
-                <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">TV Shows</a></li>
-
-                <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Music</a></li>
-
-                <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Video Games</a></li>
-
-                <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Food</a></li>
-
-                <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">About</a></li>
+            <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+                <a class="pure-menu-heading" href="">Date Night </a><a style="color:red">&hearts;</a>
         
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign Up</a></li>
-            </ul>
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Movies</a></li>
+    
+                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">TV Shows</a></li>
+    
+                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Music</a></li>
+    
+                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Video Games</a></li>
+    
+                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Food</a></li>
+    
+                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">About</a></li>
+            
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign Up</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-    
+
     <div class="splash-container">
         <div class="splash">
-            <h1 class="splash-head"><img src="Images/datenight.JPEG"></h1>
+            <h1 class="splash-head"><img src="images/datenight.jpg"></h1> 
             <p class="splash-subhead">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                The modern solution to your date night planning woes.
             </p>
             
         </div>
@@ -49,56 +50,21 @@
     
     <div class="content-wrapper">
         <div class="content">
-            <h2 class="content-head is-center">Excepteur sint occaecat cupidatat.</h2>
+            <h2 class="content-head is-center">Choose your movie</h2>
     
             <div class="pure-g">
                 <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
     
                     <h3 class="content-subhead">
                         <i class="fa fa-rocket"></i>
-                        Header 1
+                        Type your favorite movie:
                     </h3>
+                    <!-- change size of bar -->
+                    <input id="movieIn" type="text">
+                    <!-- style button -->
+                    <button id="movieBtn">Search</button>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor.
-                    </p>
-                </div>
-                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                    <h3 class="content-subhead">
-                        <i class="fa fa-mobile"></i>
-                        Header 2
-                    </h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor.
-                    </p>
-                </div>
-                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                    <h3 class="content-subhead">
-                        <i class="fa fa-th-large"></i>
-                       Header 3
-                    </h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor.
-                    </p>
-                </div>
-                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                    <h3 class="content-subhead">
-                        <i class="fa fa-check-square-o"></i>
-                        Header 4
-                    </h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor.
+                       Output options here!
                     </p>
                 </div>
             </div>
@@ -106,40 +72,75 @@
     
         <div class="ribbon l-box-lrg pure-g">
             <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-                <img width="100%" alt="File Icons" class="pure-img-responsive" src="Images/gamenight.JPEG">
+                <img width="100%" alt="File Icons" class="pure-img-responsive" src="images/gamenight.jpg"> 
             </div>
             <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
-    
-                <h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
-    
+                <!-- change top margin, bring up higher -->
+                <h2 class="content-head content-head-ribbon">Choose your game</h2>
+                <!-- change color of text -->
+                <h5>Type your favorite game:</h5>
+                <!-- change size of bar -->
+                <input id="gameIn" type="text">
+                <!-- style button -->
+                <button id="gameBtn">Search</button>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor.
+                    Output options here!
                 </p>
             </div>
         </div>
-    
+        <div class="content-wrapper">
+            <div class="content">
+                <h2 class="content-head is-center">Choose your show</h2>
+        
+                <div class="pure-g">
+                    <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+        
+                        <h3 class="content-subhead">
+                            <i class="fa fa-rocket"></i>
+                            Type your favorite show:
+                        </h3>
+                        <!-- change size of bar -->
+                        <input id="tvIn" type="text">
+                        <!-- style button -->
+                        <button id="tvBtn">Search</button>
+                        <p>
+                           Output options here!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <div class="ribbon l-box-lrg pure-g">
+            <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                <img width="100%" alt="File Icons" class="pure-img-responsive" src="images/gamenight.jpg"> 
+            </div>
+            <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+                <!-- change top margin, bring up higher -->
+                <h2 class="content-head content-head-ribbon">Choose your tunes</h2>
+                <!-- change color of text -->
+                <h5>Type your favorite band:</h5>
+                <!-- change size of bar -->
+                <input id="musicIn" type="text">
+                <!-- style button -->
+                <button id="musicBtn">Search</button>
+                <p>
+                    Output options here!
+                </p>
+            </div>
+        </div>    
         <div class="content">
-            <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
+            <h2 class="content-head is-center">Choose your dinner</h2>
     
             <div class="pure-g">
                 <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
                     <form class="pure-form pure-form-stacked">
-                        <fieldset>
-    
-                            <label for="name">Movie Genre</label>
-                            <input id="#" type="text" placeholder="">
-    
-    
-                            <label for="name">Type of Food</label>
-                            <input id="#" type="text" placeholder="">
-    
-                    
-    
-                            <button type="submit" class="pure-button">Search</button> 
-                        </fieldset>
+                        <h5>Type the main ingredient:</h5>
+                        <input id="foodIn" type="text">
+                        <!-- style button -->
+                        <button id="foodBtn">Search</button>
+                        <br><br>
+                        <!-- FINAL BUTTON -->
+                        <!-- MAKE BIG AND STUFF -->
+                        <button id="renderBtn">Show Date</button>
                     </form>
                 </div>
     
@@ -148,34 +149,18 @@
 
 
                     <!-- Can be in the about section ??? -->
-                    <h4>Contact Us</h4>
+                    <!-- add a break or some sort of divider -->
+                    <h4>About us</h4>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat.
                     </p>
-    
-                    <h4>More Information</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
                 </div>
             </div>
-    
         </div>
-    
-
     </div>
-    
-    
-
-
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
