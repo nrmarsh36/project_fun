@@ -106,6 +106,36 @@ a.pure-button-primary {
     color: white;
 }
 
+.keep {
+    margin-bottom: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: larger;
+    border: solid 5px #1f8dd6;
+    color: white;
+    background: rgb(175, 175, 175);
+}
+    .keep:hover{
+        box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
+        color: white;
+    }
+
+.toss {
+    margin-bottom: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: larger;
+    border: solid 5px #1f8dd6;
+    color: white;
+    background: rgb(175, 175, 175);
+}  
+    .toss:hover{
+        box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
+        color: white;
+    }
+
 .finalBtn {
     margin-bottom: 10px;
     border-radius: 5px;
