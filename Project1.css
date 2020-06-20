@@ -74,7 +74,6 @@ a.pure-button-primary {
     font-size: 120%;
 }
 
-<<<<<<< HEAD
 /* styling the date button line 73 on js script - carson */
 .dateBtn {
     color: rgba(255, 255, 255, 0.767);
@@ -86,85 +85,6 @@ a.pure-button-primary {
     font-size: 20px;
 }
 
-=======
-.buttonA {
-    margin-bottom: 10px;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: larger;
-    border-color: #1f8dd6;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #1f8dd6 inset, 0 0 0 0 #1f8dd6;
-    -webkit-transition: all 150ms ease-in-out;
-    transition: all 150ms ease-in-out;
-  }
-  .buttonA:hover {
-    box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
-    color: #2d3e50;
-}
-
-.buttonB {
-    margin-bottom: 10px;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: larger;
-    border-color: #1f8dd6;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #1f8dd6 inset, 0 0 0 0 #1f8dd6;
-    -webkit-transition: all 150ms ease-in-out;
-    transition: all 150ms ease-in-out;
-  }
-  .buttonB:hover {
-    box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
-    color: white;
-}
-
-.keep {
-    margin-bottom: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: larger;
-    border: solid 5px #1f8dd6;
-    color: white;
-    background: rgb(175, 175, 175);
-}
-    .keep:hover{
-        box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
-        color: white;
-    }
-
-.toss {
-    margin-bottom: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: larger;
-    border: solid 5px #1f8dd6;
-    color: white;
-    background: rgb(175, 175, 175);
-}  
-    .toss:hover{
-        box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
-        color: white;
-    }
-
-.finalBtn {
-    margin-bottom: 10px;
-    border-radius: 5px;
-    padding: 30px;
-    font-size: 6rem;
-    border-color: #1f8dd6;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #1f8dd6 inset, 0 0 0 0 #1f8dd6;
-    -webkit-transition: all 150ms ease-in-out;
-    transition: all 150ms ease-in-out;
-  }
-  .finalBtn:hover {
-    box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
-    color: white;
-}
->>>>>>> master
 
 /*menu - top of the page*/
 
