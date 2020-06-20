@@ -236,7 +236,6 @@ $(document).ready(function(){
             date.push([keyArr[2],keyArr[0],tResults[keyArr[1]]]);
         }
     }
-
     // remove choice
     function deleteChoice(keyStr) {
         var keyArr = keyStr.split(' ');
@@ -249,7 +248,6 @@ $(document).ready(function(){
         }
         $('#'+keyArr[1]).remove();
     }
-
     // call tastedive api
     function callTasteAPI(q) {
         $.ajax({
@@ -280,7 +278,6 @@ $(document).ready(function(){
             console.log(error);
         });
     }
-
     $("#movieBtn").on("click", function() {
         var searchTerm = $('#movieIn').val();
         var type = "&type=movies";
