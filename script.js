@@ -20,7 +20,7 @@ $(document).ready(function(){
     var tResults = [];
     var date = [];
     var dates = [];
-    var dateNames = [];
+    var dateNames = [""];
     // element variables
     var divDate = $('.date');
     var divMovies = $('.movie');
@@ -42,6 +42,18 @@ $(document).ready(function(){
         divGames.empty();
         divMusic.empty();
         divFood.empty();
+    }
+
+    // initialize app
+    function init () {
+        if (JSON.parse(localStorage.getItem("dates"))) {
+            dates = JSON.parse(localStorage.getItem("dates"));
+        }
+    }
+
+    // save to local storage
+    function saveLocal() {
+        localStorage.setItem('dates',JSON.stringify(dates));
     }
 
     // renderBtn action listener
@@ -94,7 +106,9 @@ $(document).ready(function(){
             } else {
                 var dName = dateName;
             }
+            // var newDate = JSON.parse(JSON.stringify(choices));
             var newDate = JSON.parse(JSON.stringify(date));
+            console.log(newDate);
             if (dName.length > 0) {
                 var found = false;
                 var idx = -1;
@@ -108,7 +122,9 @@ $(document).ready(function(){
                     dateNames.splice(0,1,dName);
                     console.log(dateNames);
                     dates.push([dName,newDate]);
-                    renderDate(dateNames[0],date);
+                    saveLocal();
+                    // renderDate(dateNames[0],date);
+                    renderDate(dName,newDate);
                 } else {
                     if (dateName === "") {
                         $('#dateName').val("Already exists.  Please use another name.");
@@ -116,6 +132,8 @@ $(document).ready(function(){
                         $('#dateName').select();
                     } else {
                         dates[idx][1] = newDate;
+                        saveLocal();
+                        console.log(dates);
                     }
                 }
             } else {
@@ -133,19 +151,20 @@ $(document).ready(function(){
                 var dName = dateNames[0];
             }
             date = [];
-            dateNames = [];
+            dateNames = [""];
             for (var i = 0; i < dates.length; i++) {
                 if (dName === dates[i][0]) {
                     console.log("delete match: "+dName);
                     console.log("splice idx: "+i);
                     dates.splice(i,1);
+                    saveLocal();
                 }
             }
             clearEntries();
             console.log(dates);
         });
         $('#saveNew').on("click",function() {
-            dateNames = [];
+            dateNames = [""];
             clearEntries();
             renderDate("",choices);
             console.log(dates);
@@ -192,6 +211,11 @@ $(document).ready(function(){
             }
             $('.toss').on("click",function(){
                 deleteChoice($(this).val());
+                if (dateNames[0].length > 0) {
+                    renderDate(dateNames[0],date);
+                } else {
+                    renderDate("",date);
+                }
             });
         }
     }
@@ -333,4 +357,6 @@ $(document).ready(function(){
             console.log(error);
         });
     });
+
+    init();
 });
