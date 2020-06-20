@@ -74,6 +74,17 @@ a.pure-button-primary {
     font-size: 120%;
 }
 
+/* styling the date button line 73 on js script - carson */
+.dateBtn {
+    color: rgba(255, 255, 255, 0.767);
+    font-size: 20px;
+}
+/* styling the save date button line 97 on js script */
+#saveDate {
+    color: rgba(255, 255, 255, 0.767);
+    font-size: 20px;
+}
+
 
 /*menu - top of the page*/
 
