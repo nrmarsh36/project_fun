@@ -1,77 +1,90 @@
-
-
-
-// //OMDb API
-// var queryURL = "https://www.omdbapi.com/?t=&apikey=trilogy";
-
-// <body>
-//     <h5>Type your favorite movie:</h5>
-//     <input id="movieIn" type="text">
-//     <button id="movieBtn">Search</button>
-//     <h5>Type your favorite tv show:</h5>
-//     <input id="tvIn" type="text">
-//     <button id="tvBtn">Search</button>
-//     <h5>Type your favorite game:</h5>
-//     <input id="gameIn" type="text">
-//     <button id="gameBtn">Search</button>
-//     <h5>Type your favorite band:</h5>
-//     <input id="musicIn" type="text">
-//     <button id="musicBtn">Search</button>
-//     <h5>Type the main ingredient:</h5>
-//     <input id="foodIn" type="text">
-//     <button id="foodBtn">Search</button>
-//     <br><br>
-//     <button id="renderBtn">Show Date</button>
-//     <div class="results"></div>
-//     <div class="date">
-//         <div class="movie"></div>
-//         <div class="show"></div>
-//         <div class="game"></div>
-//         <div class="music"></div>
-//         <div class="food"></div>
-//     </div>
-//     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-//     <script type="text/javascript">
-
-
 $(document).ready(function(){
     // api list https://apilist.fun/
+
     // for dealing with CORS issues https://gist.github.com/jesperorb/6ca596217c8dfba237744966c2b5ab1e
     // https://cors-anywhere.herokuapp.com/
+
     // for tastedive
     // https://tastedive.com/read/api
     // var type = "&type=movie";
     // var limit = "&limit=5";
     // var id = "&k=375713-Dinneran-ZVGUOS8M";
     // var queryURL = "https://tastedive.com/api/similar?info=1&q="+searchTerm+id+limit;
+
     // for spoonacular
     // https://spoonacular.com/food-api/docs
     // var queryURL = "https://api.spoonacular.com/recipes/search?query=salmon&number=2&apiKey="+"0eced41247c74c369f750e7b1ea46a47";
+
+
     // storage arrays
     var tResults = [];
     var date = [];
     var dates = [];
+    var dateNames = [""];
     // element variables
-    var divResults = $('.results');
+    var divDate = $('.date');
     var divMovies = $('.movie');
     var divShows = $('.show');
     var divGames = $('.game');
     var divMusic = $('.music');
     var divFood = $('.food');
+
     // clear entries
     function clearEntries() {
-        divResults.empty();
+        $('.movieResults').empty();
+        $('.showResults').empty();
+        $('.gameResults').empty();
+        $('.musicResults').empty();
+        $('.foodResults').empty();
+        divDate.empty();
         divMovies.empty();
         divShows.empty();
         divGames.empty();
         divMusic.empty();
         divFood.empty();
     }
+
+    // initialize app
+    function init () {
+        if (JSON.parse(localStorage.getItem("dates"))) {
+            dates = JSON.parse(localStorage.getItem("dates"));
+        }
+    }
+
+    // save to local storage
+    function saveLocal() {
+        localStorage.setItem('dates',JSON.stringify(dates));
+    }
+
     // renderBtn action listener
     $('#renderBtn').on("click",function() {
-        renderDate("",date);
+        console.log(dateNames);
+        if (!dateNames[0]) {
+            renderDate("",date);
+        } else {
+            renderDate(dateNames[0],date);
+        }
     });
+
+    // listBtn action listener
+    $('#listBtn').on("click",function() {
+        clearEntries();
+        for (var i = 0; i < dates.length; i++) {
+            var newDateBtn = $('<button class="dateBtn" id="'+i+'" value="'+ dates[i][0] +'">'+ dates[i][0] +'</button>');
+            divDate.append(newDateBtn);
+        }
+        $('.dateBtn').on("click",function(){
+            var nameToRender = $(this).val();
+            console.log($(this));
+            var idToRender = parseInt(this.id);
+            console.log("name to render: "+nameToRender);
+            console.log("id to render: "+idToRender);
+            date = JSON.parse(JSON.stringify(dates[idToRender][1]));
+            dateNames.splice(0,1,nameToRender);
+            renderDate(dateNames[0],date);
+        });
+    });
+
     // render date
     function renderDate(dateName,choices) {
         clearEntries();
@@ -80,6 +93,82 @@ $(document).ready(function(){
         var games = false;
         var music = false;
         var food = false;
+        if (dateName === "") {
+            var newDate = $('<div><h2>Enter a Name for the Date: </h2><input id="dateName" type="text"><button id="saveDate">Save Date</button><button id="deleteDate">Delete Date</button></div><br>');
+        } else {
+            var newDate = $('<div><h2>Plans for Date: '+dateName+'</h2><button id="saveDate">Save Changes</button><button id="deleteDate">Delete Date</button><button id="saveNew">Save New Date</button></div><br>');
+        }
+
+        divDate.append(newDate);
+        $('#saveDate').on("click",function() {
+            if (dateName === "") {
+                var dName = $('#dateName').val();                
+            } else {
+                var dName = dateName;
+            }
+            // var newDate = JSON.parse(JSON.stringify(choices));
+            var newDate = JSON.parse(JSON.stringify(date));
+            console.log(newDate);
+            if (dName.length > 0) {
+                var found = false;
+                var idx = -1;
+                for (var i = 0; i < dates.length; i++) {
+                    if (dates[i][0] === dName) {
+                        found = true;
+                        idx = i;
+                    }
+                }
+                if (!found) {
+                    dateNames.splice(0,1,dName);
+                    console.log(dateNames);
+                    dates.push([dName,newDate]);
+                    saveLocal();
+                    // renderDate(dateNames[0],date);
+                    renderDate(dName,newDate);
+                } else {
+                    if (dateName === "") {
+                        $('#dateName').val("Already exists.  Please use another name.");
+                        $('#dateName').focus();
+                        $('#dateName').select();
+                    } else {
+                        dates[idx][1] = newDate;
+                        saveLocal();
+                        console.log(dates);
+                    }
+                }
+            } else {
+                $('#dateName').val("Please enter a name.");
+                $('#dateName').focus();
+                $('#dateName').select();
+            }
+            console.log(dates);
+        });
+        $('#deleteDate').on("click",function() {
+            var dName = $('#dateName').val();
+            if ($('#dateName').val()) {
+                var dName = $('#dateName').val();
+            } else {
+                var dName = dateNames[0];
+            }
+            date = [];
+            dateNames = [""];
+            for (var i = 0; i < dates.length; i++) {
+                if (dName === dates[i][0]) {
+                    console.log("delete match: "+dName);
+                    console.log("splice idx: "+i);
+                    dates.splice(i,1);
+                    saveLocal();
+                }
+            }
+            clearEntries();
+            console.log(dates);
+        });
+        $('#saveNew').on("click",function() {
+            dateNames = [""];
+            clearEntries();
+            renderDate("",choices);
+            console.log(dates);
+        });
         for (var i = 0; i < choices.length; i++) {
             var appendTo = $('.'+choices[i][1]);
             var value = choices[i][1]+" "+i+" "+choices[i][0];
@@ -122,9 +211,15 @@ $(document).ready(function(){
             }
             $('.toss').on("click",function(){
                 deleteChoice($(this).val());
+                if (dateNames[0].length > 0) {
+                    renderDate(dateNames[0],date);
+                } else {
+                    renderDate("",date);
+                }
             });
         }
     }
+
     // save choice
     function saveChoice(keyStr) {
         var keyArr = keyStr.split(' ');
@@ -163,6 +258,7 @@ $(document).ready(function(){
             if (response.Similar.Results.length > 0) {
                 var cat = response.Similar.Results[0].Type;
                 tResults = response.Similar.Results;
+                var divResults = $('.'+cat+'Results');
                 for (var i = 0; i < response.Similar.Results.length; i++) {
                     var value = cat+" "+i+" "+response.Similar.Results[i].yID;
                     var newResult = $('<div id="'+i+'"><h3>'+ response.Similar.Results[i].Name +'</h3><br><iframe height="160" width="auto" allowfullscreen src="https://www.youtube.com/embed/'+ response.Similar.Results[i].yID +'"></iframe><p>'+ response.Similar.Results[i].wTeaser +'</p><a href="'+ response.Similar.Results[i].wUrl +'" target="_blank">'+ response.Similar.Results[i].wUrl +'</a><br><button class="keep" value="'+ value +'">Keep</button><button class="toss" value="'+ value +'">Toss</button><br><br></div>');
@@ -189,10 +285,9 @@ $(document).ready(function(){
         var id = "&k=375713-Dinneran-ZVGUOS8M";
         var queryURL = "https://tastedive.com/api/similar?info=1&q="+searchTerm+id+limit+type;
         clearEntries();
-        var newCat =  $('<h2>Movies Suggestions:</h2>');
-        divResults.append(newCat);
         callTasteAPI(queryURL);
     });
+
     $("#tvBtn").on("click", function() {
         var searchTerm = $('#tvIn').val();
         var type = "&type=shows";
@@ -200,10 +295,9 @@ $(document).ready(function(){
         var id = "&k=375713-Dinneran-ZVGUOS8M";
         var queryURL = "https://tastedive.com/api/similar?info=1&q="+searchTerm+id+limit+type;
         clearEntries();
-        var newCat =  $('<h2>TV Show Suggestions:</h2>');
-        divResults.append(newCat);
         callTasteAPI(queryURL);
     });
+
     $("#gameBtn").on("click", function() {
         var searchTerm = $('#gameIn').val();
         var type = "&type=games";
@@ -211,10 +305,9 @@ $(document).ready(function(){
         var id = "&k=375713-Dinneran-ZVGUOS8M";
         var queryURL = "https://tastedive.com/api/similar?info=1&q="+searchTerm+id+limit+type;
         clearEntries();
-        var newCat =  $('<h2>Video Game Suggestions:</h2>');
-        divResults.append(newCat);
         callTasteAPI(queryURL);
     });
+
     $("#musicBtn").on("click", function() {
         var searchTerm = $('#musicIn').val();
         var type = "&type=music";
@@ -222,10 +315,9 @@ $(document).ready(function(){
         var id = "&k=375713-Dinneran-ZVGUOS8M";
         var queryURL = "https://tastedive.com/api/similar?info=1&q="+searchTerm+id+limit+type;
         clearEntries();
-        var newCat =  $('<h2>Band Suggestions:</h2>');
-        divResults.append(newCat);
         callTasteAPI(queryURL);
     });
+
     $("#foodBtn").on("click", function() {
         var searchTerm = $('#foodIn').val();
         var limit = "&number=5";
@@ -234,8 +326,6 @@ $(document).ready(function(){
         // var queryURL = "https://cors-anywhere.herokuapp.com/https://api.spoonacular.com/recipes/search?query="+searchTerm+limit+id;
         var queryURL = "https://api.spoonacular.com/recipes/search?query="+searchTerm+limit+id;
         clearEntries();
-        var newCat =  $('<h2>Recipe Suggestions:</h2>');
-        divResults.append(newCat);
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -244,6 +334,7 @@ $(document).ready(function(){
             if (response.results.length > 0) {
                 tResults = response.results;
                 var cat = "food";
+                var divResults = $('.'+cat+'Results');
                 for (var i = 0; i < response.results.length; i++) {
                     var value = cat+" "+i+" "+response.results[i].sourceUrl;
                     var newResult = $('<div id="'+i+'"><h3><a href="'+ response.results[i].sourceUrl +'" target="_blank">'+response.results[i].title+'</a></h3><img height="160" width="auto" alt="Recipe Image" src="'+ response.baseUri + response.results[i].image+'"/><p>Time in Minutes: '+ response.results[i].readyInMinutes +'</p><p>Servings: '+ response.results[i].servings +'</p><button class="keep" value="'+ value +'">Keep</button><button class="toss" value="'+ value +'">Toss</button><br></div>');
@@ -263,4 +354,6 @@ $(document).ready(function(){
             console.log(error);
         });
     });
+
+    init();
 });
