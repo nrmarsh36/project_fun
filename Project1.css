@@ -184,6 +184,7 @@ button:hover::after, button:focus::after {
       height: 300px;
       opacity: 0;
     }
+}
 /* 
 .buttonA {
     background-color: #2d3e50;
