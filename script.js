@@ -69,10 +69,12 @@ $(document).ready(function(){
     // listBtn action listener
     $('#listBtn').on("click",function() {
         clearEntries();
+        // list saved dates as buttons
         for (var i = 0; i < dates.length; i++) {
             var newDateBtn = $('<button class="dateBtn" id="'+i+'" value="'+ dates[i][0] +'">'+ dates[i][0] +'</button>');
             divDate.append(newDateBtn);
         }
+        // date button action listener to render saved dates
         $('.dateBtn').on("click",function(){
             var nameToRender = $(this).val();
             console.log($(this));
@@ -93,49 +95,52 @@ $(document).ready(function(){
         var games = false;
         var music = false;
         var food = false;
+        // display date name and save/delete options
         if (dateName === "") {
             var newDate = $('<div><h2>Enter a Name for the Date: </h2><input id="dateName" type="text"><button id="saveDate">Save Date</button><button id="deleteDate">Delete Date</button></div><br>');
         } else {
             var newDate = $('<div><h2>Plans for Date: '+dateName+'</h2><button id="saveDate">Save Changes</button><button id="deleteDate">Delete Date</button><button id="saveNew">Save New Date</button></div><br>');
         }
-
         divDate.append(newDate);
+        // save date action listener
         $('#saveDate').on("click",function() {
             if (dateName === "") {
                 var dName = $('#dateName').val();                
             } else {
                 var dName = dateName;
             }
-            // var newDate = JSON.parse(JSON.stringify(choices));
             var newDate = JSON.parse(JSON.stringify(date));
-            console.log(newDate);
             if (dName.length > 0) {
                 var found = false;
                 var idx = -1;
+                // search for name to see if it already exists
                 for (var i = 0; i < dates.length; i++) {
                     if (dates[i][0] === dName) {
                         found = true;
                         idx = i;
                     }
                 }
+                // if the name isn't found then save as a new date
                 if (!found) {
                     dateNames.splice(0,1,dName);
                     console.log(dateNames);
                     dates.push([dName,newDate]);
                     saveLocal();
-                    // renderDate(dateNames[0],date);
                     renderDate(dName,newDate);
                 } else {
+                    // if the name already exists ask for another name
                     if (dateName === "") {
                         $('#dateName').val("Already exists.  Please use another name.");
                         $('#dateName').focus();
                         $('#dateName').select();
+                    // save changes to an existing date
                     } else {
                         dates[idx][1] = newDate;
                         saveLocal();
                         console.log(dates);
                     }
                 }
+            // ask for a name that isn't blank
             } else {
                 $('#dateName').val("Please enter a name.");
                 $('#dateName').focus();
@@ -143,6 +148,7 @@ $(document).ready(function(){
             }
             console.log(dates);
         });
+        // delete date button action listener
         $('#deleteDate').on("click",function() {
             var dName = $('#dateName').val();
             if ($('#dateName').val()) {
@@ -163,21 +169,26 @@ $(document).ready(function(){
             clearEntries();
             console.log(dates);
         });
+        // save new date button action listener
+        // render date with a prompt to name the date
         $('#saveNew').on("click",function() {
             dateNames = [""];
             clearEntries();
             renderDate("",choices);
             console.log(dates);
         });
+        // render current choices for the date
         for (var i = 0; i < choices.length; i++) {
             var appendTo = $('.'+choices[i][1]);
             var value = choices[i][1]+" "+i+" "+choices[i][0];
+            // output api data from the choices
             if (choices[i][1] === "food") {
                 var newResult = $('<div id="'+i+'"><h3 class="headColor" ><a href="'+ choices[i][2].sourceUrl +'" target="_blank">'+choices[i][2].title+'</a></h3><img height="160" width="auto" alt="Recipe Image" src="https://spoonacular.com/recipeImages/'+ choices[i][2].image+'"/><p>Time in Minutes: '+ choices[i][2].readyInMinutes +'</p><p>Servings: '+ choices[i][2].servings +'</p><button class="toss" value="'+ value +'">Toss</button><br></div>');
             } else {
                 var newResult = $('<div id="'+i+'"><h3 class="headColor">'+ choices[i][2].Name +'</h3><br><iframe height="160" width="auto" allowfullscreen src="https://www.youtube.com/embed/'+ choices[i][2].yID +'"></iframe><p>'+ choices[i][2].wTeaser +'</p><a href="'+ choices[i][2].wUrl +'" target="_blank">'+ choices[i][2].wUrl +'</a><br><button class="toss" value="'+ value +'">Toss</button><br><br></div>');
             }
             appendTo.append(newResult);
+            // conditional display the category choices
             if (choices[i][1] === "movie") {
                 if (movies === false) {
                     movies = true;
@@ -209,6 +220,8 @@ $(document).ready(function(){
                     appendTo.prepend(newCat);
                 }
             }
+            // toss button action listener
+            // remove choice from list
             $('.toss').on("click",function(){
                 deleteChoice($(this).val());
                 if (dateNames[0].length > 0) {
@@ -255,6 +268,7 @@ $(document).ready(function(){
             method: "GET"
             ,dataType: 'jsonp'
         }).then(function(response) {
+            // get and display results
             if (response.Similar.Results.length > 0) {
                 var cat = response.Similar.Results[0].Type;
                 tResults = response.Similar.Results;
@@ -264,20 +278,25 @@ $(document).ready(function(){
                     var newResult = $('<div id="'+i+'"><h3 class="headColor">'+ response.Similar.Results[i].Name +'</h3><br><iframe height="160" width="auto" allowfullscreen src="https://www.youtube.com/embed/'+ response.Similar.Results[i].yID +'"></iframe><p>'+ response.Similar.Results[i].wTeaser +'</p><a href="'+ response.Similar.Results[i].wUrl +'" target="_blank">'+ response.Similar.Results[i].wUrl +'</a><br><button class="keep" value="'+ value +'">Keep</button><button class="toss" value="'+ value +'">Toss</button><br><br></div>');
                     divResults.append(newResult);
                 }
+                // remember choice in date plan
                 $('.keep').on("click",function(){
                     saveChoice($(this).val());
                 });
+                // remove choice from list
                 $('.toss').on("click",function(){
                     deleteChoice($(this).val());
                 });
+            // ask for another search if no results
             } else {
                 var newCat =  $('<p>No Results.  Please Try another search.</p>');
                 divResults.append(newCat);
             }
+        // output error to console
         }).catch(function (error) {
             console.log(error);
         });
     }
+    // movie search button action listener
     $("#movieBtn").on("click", function() {
         var searchTerm = $('#movieIn').val();
         var type = "&type=movies";
@@ -287,7 +306,7 @@ $(document).ready(function(){
         clearEntries();
         callTasteAPI(queryURL);
     });
-
+    // tv show search button action listener
     $("#tvBtn").on("click", function() {
         var searchTerm = $('#tvIn').val();
         var type = "&type=shows";
@@ -297,7 +316,7 @@ $(document).ready(function(){
         clearEntries();
         callTasteAPI(queryURL);
     });
-
+    // video game search button action listener
     $("#gameBtn").on("click", function() {
         var searchTerm = $('#gameIn').val();
         var type = "&type=games";
@@ -307,7 +326,7 @@ $(document).ready(function(){
         clearEntries();
         callTasteAPI(queryURL);
     });
-
+    // music search button action listener
     $("#musicBtn").on("click", function() {
         var searchTerm = $('#musicIn').val();
         var type = "&type=music";
@@ -317,7 +336,7 @@ $(document).ready(function(){
         clearEntries();
         callTasteAPI(queryURL);
     });
-
+    // recipe search button action listener
     $("#foodBtn").on("click", function() {
         var searchTerm = $('#foodIn').val();
         var limit = "&number=5";
@@ -331,6 +350,7 @@ $(document).ready(function(){
             method: "GET"
             // ,dataType: 'jsonp'
         }).then(function(response) {
+            // get and display results
             if (response.results.length > 0) {
                 tResults = response.results;
                 var cat = "food";
@@ -340,20 +360,25 @@ $(document).ready(function(){
                     var newResult = $('<div id="'+i+'"><h3 class="headColor"><a href="'+ response.results[i].sourceUrl +'" target="_blank">'+response.results[i].title+'</a></h3><img height="160" width="auto" alt="Recipe Image" src="'+ response.baseUri + response.results[i].image+'"/><p>Time in Minutes: '+ response.results[i].readyInMinutes +'</p><p>Servings: '+ response.results[i].servings +'</p><button class="keep" value="'+ value +'">Keep</button><button class="toss" value="'+ value +'">Toss</button><br></div>');
                     divResults.append(newResult);
                 }
+                // remember choice in date plan
                 $('.keep').on("click",function(){
                     saveChoice($(this).val());
                 });
+                // remove choice from list
                 $('.toss').on("click",function(){
                     deleteChoice($(this).val());
                 });
+            // ask for another search if no results
             } else {
                 var newCat =  $('<p>No Results.  Please Try another search.</p>');
                 divResults.append(newCat);
             }
+        // output error to console
         }).catch(function (error) {
             console.log(error);
         });
     });
 
+    // initialize program, currently just gets local storage
     init();
 });

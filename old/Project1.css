@@ -74,17 +74,6 @@ a.pure-button-primary {
     font-size: 120%;
 }
 
-/* styling the date button line 73 on js script - carson */
-.dateBtn {
-    color: rgba(255, 255, 255, 0.767);
-    font-size: 20px;
-}
-/* styling the save date button line 97 on js script */
-#saveDate {
-    color: rgba(255, 255, 255, 0.767);
-    font-size: 20px;
-}
-
 
 /*menu - top of the page*/
 
@@ -123,9 +112,6 @@ a.pure-button-primary {
     color: #AECFE5;
 }
 
-.headColor {
-     color: #7f8c8d;    
-}
 
 /*blue top section that appears on the page.*/
 
@@ -216,7 +202,6 @@ a.pure-button-primary {
 }
 
 
-
 /* medium-sized devices */
 @media (min-width: 48em) {
 
@@ -264,5 +249,4 @@ a.pure-button-primary {
     .splash-head {
         font-size: 300%;
     }
-    
 }
