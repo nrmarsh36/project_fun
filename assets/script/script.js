@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    // API NOTES:
     // api list https://apilist.fun/
 
     // for dealing with CORS issues https://gist.github.com/jesperorb/6ca596217c8dfba237744966c2b5ab1e
@@ -17,9 +18,13 @@ $(document).ready(function(){
 
 
     // storage arrays
+    // results array
     var tResults = [];
+    // current date array
     var date = [];
+    // saved dates array
     var dates = [];
+    // current date name
     var dateNames = [""];
     // element variables
     var divDate = $('.date');
@@ -58,7 +63,6 @@ $(document).ready(function(){
 
     // renderBtn action listener
     $('#renderBtn').on("click",function() {
-        console.log(dateNames);
         if (!dateNames[0]) {
             renderDate("",date);
         } else {
@@ -77,10 +81,7 @@ $(document).ready(function(){
         // date button action listener to render saved dates
         $('.dateBtn').on("click",function(){
             var nameToRender = $(this).val();
-            console.log($(this));
             var idToRender = parseInt(this.id);
-            console.log("name to render: "+nameToRender);
-            console.log("id to render: "+idToRender);
             date = JSON.parse(JSON.stringify(dates[idToRender][1]));
             dateNames.splice(0,1,nameToRender);
             renderDate(dateNames[0],date);
@@ -123,7 +124,6 @@ $(document).ready(function(){
                 // if the name isn't found then save as a new date
                 if (!found) {
                     dateNames.splice(0,1,dName);
-                    console.log(dateNames);
                     dates.push([dName,newDate]);
                     saveLocal();
                     renderDate(dName,newDate);
@@ -137,7 +137,6 @@ $(document).ready(function(){
                     } else {
                         dates[idx][1] = newDate;
                         saveLocal();
-                        console.log(dates);
                     }
                 }
             // ask for a name that isn't blank
@@ -146,7 +145,6 @@ $(document).ready(function(){
                 $('#dateName').focus();
                 $('#dateName').select();
             }
-            console.log(dates);
         });
         // delete date button action listener
         $('#deleteDate').on("click",function() {
@@ -160,14 +158,11 @@ $(document).ready(function(){
             dateNames = [""];
             for (var i = 0; i < dates.length; i++) {
                 if (dName === dates[i][0]) {
-                    console.log("delete match: "+dName);
-                    console.log("splice idx: "+i);
                     dates.splice(i,1);
                     saveLocal();
                 }
             }
             clearEntries();
-            console.log(dates);
         });
         // save new date button action listener
         // render date with a prompt to name the date
@@ -175,7 +170,6 @@ $(document).ready(function(){
             dateNames = [""];
             clearEntries();
             renderDate("",choices);
-            console.log(dates);
         });
         // render current choices for the date
         for (var i = 0; i < choices.length; i++) {
@@ -183,7 +177,7 @@ $(document).ready(function(){
             var value = choices[i][1]+" "+i+" "+choices[i][0];
             // output api data from the choices
             if (choices[i][1] === "food") {
-                var newResult = $('<div id="'+i+'"><h3 class="headColor" ><a href="'+ choices[i][2].sourceUrl +'" target="_blank">'+choices[i][2].title+'</a></h3><img height="160" width="auto" alt="Recipe Image" src="https://spoonacular.com/recipeImages/'+ choices[i][2].image+'"/><p>Time in Minutes: '+ choices[i][2].readyInMinutes +'</p><p>Servings: '+ choices[i][2].servings +'</p><button class="toss" value="'+ value +'">Toss</button><br></div>');
+                var newResult = $('<div id="'+i+'"><h3 class="headColor"><a href="'+ choices[i][2].sourceUrl +'" target="_blank">'+choices[i][2].title+'</a></h3><img height="160" width="auto" alt="Recipe Image" src="https://spoonacular.com/recipeImages/'+ choices[i][2].image+'"/><p>Time in Minutes: '+ choices[i][2].readyInMinutes +'</p><p>Servings: '+ choices[i][2].servings +'</p><button class="toss" value="'+ value +'">Toss</button><br></div>');
             } else {
                 var newResult = $('<div id="'+i+'"><h3 class="headColor">'+ choices[i][2].Name +'</h3><br><iframe height="160" width="auto" allowfullscreen src="https://www.youtube.com/embed/'+ choices[i][2].yID +'"></iframe><p>'+ choices[i][2].wTeaser +'</p><a href="'+ choices[i][2].wUrl +'" target="_blank">'+ choices[i][2].wUrl +'</a><br><button class="toss" value="'+ value +'">Toss</button><br><br></div>');
             }
@@ -262,7 +256,7 @@ $(document).ready(function(){
         $('#'+keyArr[1]).remove();
     }
     // call tastedive api
-    function callTasteAPI(q) {
+    function callTasteAPI(q,id) {
         $.ajax({
             url: q,
             method: "GET"
@@ -293,6 +287,23 @@ $(document).ready(function(){
             }
         // output error to console
         }).catch(function (error) {
+            if (id === "movieBtn") {
+                $('#movieIn').val("No Results");
+                $('#movieIn').focus();
+                $('#movieIn').select();
+            } else if (id === "gameBtn") {
+                $('#gameIn').val("No Results");
+                $('#gameIn').focus();
+                $('#gameIn').select();
+            } else if (id === "tvBtn") {
+                $('#tvIn').val("No Results");
+                $('#tvIn').focus();
+                $('#tvIn').select();
+            } else if (id === "musicBtn") {
+                $('#musicIn').val("No Results");
+                $('#musicIn').focus();
+                $('#musicIn').select();
+            }
             console.log(error);
         });
     }
@@ -304,7 +315,7 @@ $(document).ready(function(){
         var id = "&k=375713-Dinneran-ZVGUOS8M";
         var queryURL = "https://tastedive.com/api/similar?info=1&q="+searchTerm+id+limit+type;
         clearEntries();
-        callTasteAPI(queryURL);
+        callTasteAPI(queryURL,this.id);
     });
     // tv show search button action listener
     $("#tvBtn").on("click", function() {
@@ -314,7 +325,7 @@ $(document).ready(function(){
         var id = "&k=375713-Dinneran-ZVGUOS8M";
         var queryURL = "https://tastedive.com/api/similar?info=1&q="+searchTerm+id+limit+type;
         clearEntries();
-        callTasteAPI(queryURL);
+        callTasteAPI(queryURL,this.id);
     });
     // video game search button action listener
     $("#gameBtn").on("click", function() {
@@ -324,7 +335,7 @@ $(document).ready(function(){
         var id = "&k=375713-Dinneran-ZVGUOS8M";
         var queryURL = "https://tastedive.com/api/similar?info=1&q="+searchTerm+id+limit+type;
         clearEntries();
-        callTasteAPI(queryURL);
+        callTasteAPI(queryURL,this.id);
     });
     // music search button action listener
     $("#musicBtn").on("click", function() {
@@ -334,7 +345,7 @@ $(document).ready(function(){
         var id = "&k=375713-Dinneran-ZVGUOS8M";
         var queryURL = "https://tastedive.com/api/similar?info=1&q="+searchTerm+id+limit+type;
         clearEntries();
-        callTasteAPI(queryURL);
+        callTasteAPI(queryURL,this.id);
     });
     // recipe search button action listener
     $("#foodBtn").on("click", function() {
@@ -376,6 +387,9 @@ $(document).ready(function(){
         // output error to console
         }).catch(function (error) {
             console.log(error);
+            $('#foodIn').val("No Results");
+            $('#foodIn').focus();
+            $('#foodIn').select();
         });
     });
 
