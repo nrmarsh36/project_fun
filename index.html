@@ -6,7 +6,7 @@
     <title>Date Night</title>
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation.min.css'>
-    <link rel="stylesheet" href='Project1.css'>
+    <link rel="stylesheet" href='assets/style/Project1.css'>
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
 
@@ -18,13 +18,12 @@
             <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
                 <a class="pure-menu-heading" href="">Date Night </a><a style="color:red">&hearts;</a>
                 <ul class="pure-menu-list">
-                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Movies</a></li>
-                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Video Games</a></li>
-                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">TV Shows</a></li>
-                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Music</a></li>
-                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Food</a></li>
-                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">About</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign Up</a></li>
+                    <li class="pure-menu-item"><a href="#movieDiv" class="pure-menu-link">Movies</a></li>
+                    <li class="pure-menu-item"><a href="#gameDiv" class="pure-menu-link">Video Games</a></li>
+                    <li class="pure-menu-item"><a href="#tvDiv" class="pure-menu-link">TV Shows</a></li>
+                    <li class="pure-menu-item"><a href="#musicDiv" class="pure-menu-link">Music</a></li>
+                    <li class="pure-menu-item"><a href="#foodDiv" class="pure-menu-link">Food</a></li>
+                    <li class="pure-menu-item"><a href="#aboutDiv" class="pure-menu-link">About</a></li>
                 </ul>
             </div>
         </div>
@@ -39,6 +38,9 @@
     </div>
     <div class="content-wrapper">
         <div class="content">
+            <div id="movieDiv" class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                <img width="70%" alt="Movie Theater" class="pure-img-responsive" src="images/theaterpic.jpg">
+            </div>
             <h2 class="content-head is-center">Choose your movie</h2>
             <div class="pure-g">
                 <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
@@ -53,8 +55,8 @@
             </div>
         </div>
         <div class="ribbon l-box-lrg pure-g">
-            <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-                <img width="100%" alt="File Icons" class="pure-img-responsive" src="images/gamenight.jpg"> 
+            <div id="gameDiv" class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                <img width="100%" alt="Gaming" class="pure-img-responsive" src="images/gamenight.jpg"> 
             </div>
             <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
                 <!-- change top margin, bring up higher -->
@@ -67,13 +69,12 @@
                 <button class="buttonB" id="gameBtn">Search</button>
                 <div class="gameResults"></div>
             </div>
-        </div>    
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <div class="content-wrapper">
+        </div>
+        <div>
             <div class="content">
+                <div id="tvDiv" class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                    <img width="70%" alt="Watching TV" class="pure-img-responsive" src="images/tv_date.jpg"> 
+                </div>
                 <h2 class="content-head is-center">Choose your show</h2>
                 <div class="pure-g">
                     <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
@@ -88,8 +89,8 @@
                 </div>
             </div>
             <div class="ribbon l-box-lrg pure-g">
-                <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-                    <img width="100%" alt="File Icons" class="pure-img-responsive" src="images/gamenight.jpg"> 
+                <div id="musicDiv" class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                    <img width="80%" alt="Listening to music" class="pure-img-responsive" src="images/music.jpg"> 
                 </div>
                 <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
                     <!-- change top margin, bring up higher -->
@@ -104,6 +105,9 @@
                 </div>
             </div>    
             <div class="content">
+                <div id="foodDiv" class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                    <img width="70%" alt="Cooking dinner" class="pure-img-responsive" src="images/dinner.jpg"> 
+                </div>
                 <h2 class="content-head is-center">Choose your dinner</h2>
                 <div class="pure-g">
                     <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
@@ -120,13 +124,11 @@
 
             <div class="ribbon l-box-lrg pure-g">
                 <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-                    <img width="100%" alt="File Icons" class="pure-img-responsive" src="images/datenight.jpg"> 
                 </div>
-                <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+                <div class="pure-u-1 is-center pure-u-md-1-2 pure-u-lg-3-5">
                     <!-- change top margin, bring up higher -->
-                    <h2 class="content-head content-head-ribbon">Date Summary</h2>
-                    <button class="finalBtn" id="renderBtn">Show Date</button>
-                    <button class="finalBtn" id="listBtn">Show Date List</button>
+                    <button class="finalBtn" id="renderBtn">Show Date Summary</button>
+                    <button class="finalBtn" id="listBtn">View Past Dates</button>
                     <div class="date"></div>
                     <div class="movie"></div>
                     <div class="show"></div>
@@ -136,7 +138,7 @@
                 </div>  
             </div>    
 
-            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+            <div id="aboutDiv" class="l-box-lrg pure-u-1 pure-u-md-3-5">
                 <!-- Can be in the about section ??? -->
                 <!-- add a break or some sort of divider -->
                 <h4>About us</h4>
@@ -152,6 +154,6 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="script.js"></script>
+    <script src="assets/script/script.js"></script>
 </body>
 </html>
