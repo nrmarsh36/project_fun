@@ -183,9 +183,9 @@ $(document).ready(function(){
             var value = choices[i][1]+" "+i+" "+choices[i][0];
             // output api data from the choices
             if (choices[i][1] === "food") {
-                var newResult = $('<div id="'+i+'"><h3><a href="'+ choices[i][2].sourceUrl +'" target="_blank">'+choices[i][2].title+'</a></h3><img height="160" width="auto" alt="Recipe Image" src="https://spoonacular.com/recipeImages/'+ choices[i][2].image+'"/><p>Time in Minutes: '+ choices[i][2].readyInMinutes +'</p><p>Servings: '+ choices[i][2].servings +'</p><button class="toss" value="'+ value +'">Toss</button><br></div>');
+                var newResult = $('<div id="'+i+'"><h3 class="headColor" ><a href="'+ choices[i][2].sourceUrl +'" target="_blank">'+choices[i][2].title+'</a></h3><img height="160" width="auto" alt="Recipe Image" src="https://spoonacular.com/recipeImages/'+ choices[i][2].image+'"/><p>Time in Minutes: '+ choices[i][2].readyInMinutes +'</p><p>Servings: '+ choices[i][2].servings +'</p><button class="toss" value="'+ value +'">Toss</button><br></div>');
             } else {
-                var newResult = $('<div id="'+i+'"><h3>'+ choices[i][2].Name +'</h3><br><iframe height="160" width="auto" allowfullscreen src="https://www.youtube.com/embed/'+ choices[i][2].yID +'"></iframe><p>'+ choices[i][2].wTeaser +'</p><a href="'+ choices[i][2].wUrl +'" target="_blank">'+ choices[i][2].wUrl +'</a><br><button class="toss" value="'+ value +'">Toss</button><br><br></div>');
+                var newResult = $('<div id="'+i+'"><h3 class="headColor">'+ choices[i][2].Name +'</h3><br><iframe height="160" width="auto" allowfullscreen src="https://www.youtube.com/embed/'+ choices[i][2].yID +'"></iframe><p>'+ choices[i][2].wTeaser +'</p><a href="'+ choices[i][2].wUrl +'" target="_blank">'+ choices[i][2].wUrl +'</a><br><button class="toss" value="'+ value +'">Toss</button><br><br></div>');
             }
             appendTo.append(newResult);
             // conditional display the category choices
@@ -275,7 +275,7 @@ $(document).ready(function(){
                 var divResults = $('.'+cat+'Results');
                 for (var i = 0; i < response.Similar.Results.length; i++) {
                     var value = cat+" "+i+" "+response.Similar.Results[i].yID;
-                    var newResult = $('<div id="'+i+'"><h3>'+ response.Similar.Results[i].Name +'</h3><br><iframe height="160" width="auto" allowfullscreen src="https://www.youtube.com/embed/'+ response.Similar.Results[i].yID +'"></iframe><p>'+ response.Similar.Results[i].wTeaser +'</p><a href="'+ response.Similar.Results[i].wUrl +'" target="_blank">'+ response.Similar.Results[i].wUrl +'</a><br><button class="keep" value="'+ value +'">Keep</button><button class="toss" value="'+ value +'">Toss</button><br><br></div>');
+                    var newResult = $('<div id="'+i+'"><h3 class="headColor">'+ response.Similar.Results[i].Name +'</h3><br><iframe height="160" width="auto" allowfullscreen src="https://www.youtube.com/embed/'+ response.Similar.Results[i].yID +'"></iframe><p>'+ response.Similar.Results[i].wTeaser +'</p><a href="'+ response.Similar.Results[i].wUrl +'" target="_blank">'+ response.Similar.Results[i].wUrl +'</a><br><button class="keep" value="'+ value +'">Keep</button><button class="toss" value="'+ value +'">Toss</button><br><br></div>');
                     divResults.append(newResult);
                 }
                 // remember choice in date plan
@@ -357,7 +357,7 @@ $(document).ready(function(){
                 var divResults = $('.'+cat+'Results');
                 for (var i = 0; i < response.results.length; i++) {
                     var value = cat+" "+i+" "+response.results[i].sourceUrl;
-                    var newResult = $('<div id="'+i+'"><h3><a href="'+ response.results[i].sourceUrl +'" target="_blank">'+response.results[i].title+'</a></h3><img height="160" width="auto" alt="Recipe Image" src="'+ response.baseUri + response.results[i].image+'"/><p>Time in Minutes: '+ response.results[i].readyInMinutes +'</p><p>Servings: '+ response.results[i].servings +'</p><button class="keep" value="'+ value +'">Keep</button><button class="toss" value="'+ value +'">Toss</button><br></div>');
+                    var newResult = $('<div id="'+i+'"><h3 class="headColor"><a href="'+ response.results[i].sourceUrl +'" target="_blank">'+response.results[i].title+'</a></h3><img height="160" width="auto" alt="Recipe Image" src="'+ response.baseUri + response.results[i].image+'"/><p>Time in Minutes: '+ response.results[i].readyInMinutes +'</p><p>Servings: '+ response.results[i].servings +'</p><button class="keep" value="'+ value +'">Keep</button><button class="toss" value="'+ value +'">Toss</button><br></div>');
                     divResults.append(newResult);
                 }
                 // remember choice in date plan
