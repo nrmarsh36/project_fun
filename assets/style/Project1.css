@@ -414,7 +414,7 @@ a.pure-button-primary {
 @media (min-width: 78em) {
     /* increase the header font size  */
     .splash-container {
-        height: 500px;
+        height: 480px;
     }
     .splash {
         width: 50%;
