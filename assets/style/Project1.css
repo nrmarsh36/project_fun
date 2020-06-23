@@ -320,6 +320,11 @@ a.pure-button-primary {
 
 }
 
+#divider {
+    border-bottom: 1.5px solid #aaa;
+    
+}
+
 /* We want to give the content area some more padding */
 .content {
     padding: 1em 1em 3em;
