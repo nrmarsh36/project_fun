@@ -98,9 +98,9 @@ $(document).ready(function(){
         var food = false;
         // display date name and save/delete options
         if (dateName === "") {
-            var newDate = $('<div><h2>Enter a Name for the Date: </h2><input id="dateName" type="text"><button id="saveDate">Save Date</button><button id="deleteDate">Delete Date</button></div><br>');
+            var newDate = $('<div><h2 class="headColor" >Enter a Name for the Date: </h2><input id="dateName" type="text"><button class="keep" id="saveDate">Save Date</button><button id="deleteDate">Delete Date</button></div><br>');
         } else {
-            var newDate = $('<div><h2>Plans for Date: '+dateName+'</h2><button id="saveDate">Save Changes</button><button id="deleteDate">Delete Date</button><button id="saveNew">Save New Date</button></div><br>');
+            var newDate = $('<div><h2 class="headColor" >Plans for Date: '+dateName+'</h2><button class="keep" id="saveDate">Save Changes</button><button id="deleteDate">Delete Date</button><button id="saveNew">Save New Date</button></div><br>');
         }
         divDate.append(newDate);
         // save date action listener
@@ -186,31 +186,31 @@ $(document).ready(function(){
             if (choices[i][1] === "movie") {
                 if (movies === false) {
                     movies = true;
-                    var newCat = $('<h2>Movie Choices:</h2>');
+                    var newCat = $('<h2 class="headColor" >Movie Choices:</h2>');
                     appendTo.prepend(newCat);
                 } 
             } else if (choices[i][1] === "show") {
                 if (shows === false) {
                     shows = true;
-                    var newCat = $('<h2>TV Show Choices:</h2>');
+                    var newCat = $('<h2 class="headColor" >TV Show Choices:</h2>');
                     appendTo.prepend(newCat);
                 }
             } else if (choices[i][1] === "game") {
                 if (games === false) {
                     games = true;
-                    var newCat = $('<h2>Video Game Choices:</h2>');
+                    var newCat = $('<h2 class="headColor" >Video Game Choices:</h2>');
                     appendTo.prepend(newCat);
                 }
             } else if (choices[i][1] === "music") {
                 if (music === false) {
                     music = true;
-                    var newCat = $('<h2>Music Choices:</h2>');
+                    var newCat = $('<h2 class="headColor" >Music Choices:</h2>');
                     appendTo.prepend(newCat);
                 }
             } else if (choices[i][1] === "food") {
                 if (food === false) {
                     food = true;
-                    var newCat = $('<h2>Recipe Choices:</h2>');
+                    var newCat = $('<h2 class="headColor" >Recipe Choices:</h2>');
                     appendTo.prepend(newCat);
                 }
             }
