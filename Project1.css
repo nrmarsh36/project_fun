@@ -227,7 +227,11 @@ a.pure-button-primary {
     color: #aaa;
 }
 
+/* styling for date summary text */
 
+#dateName {
+    color: white
+}
 
 /* medium-sized devices */
 @media (min-width: 48em) {
