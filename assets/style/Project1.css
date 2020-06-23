@@ -399,7 +399,7 @@ a.pure-button-primary {
     /* We decrease the width of the .splash, since we have more width
     to work with */
     .splash {
-        width: 50%;
+        width: 25%;
         height: 50%;
     }
 
@@ -419,10 +419,10 @@ a.pure-button-primary {
 @media (min-width: 78em) {
     /* increase the header font size  */
     .splash-container {
-        height: 500px;
+        height: 480px;
     }
     .splash {
-        width: 50%;
+        width: 25%;
         height: 50%;
     }
     .splash-head {
