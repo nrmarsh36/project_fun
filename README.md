@@ -1,13 +1,16 @@
-# project_fun
+# Date Night
 
 ## Team: project_fun
 * Carson
 * Nate
 * Rocio
 * Adam
+
 ## Links:
 Link to repo: <https://github.com/nrmarsh36/project_fun>
+
 Link to page: <https://nrmarsh36.github.io/project_fun/>
+
 ## Technology Used:
 * Pure.css for responsive layout <https://purecss.io/>
 * jQuery for dynamic HTML & CSS <https://jquery.com/>
@@ -15,7 +18,8 @@ Link to page: <https://nrmarsh36.github.io/project_fun/>
 * $.ajax API calls to the spoonacular and tastedive API's
 * spoonacular API for getting recipe results <https://spoonacular.com/food-api>
 * tastedive API for getting movie, TV, video game, and music results <https://tastedive.com/read/api>
-## Screenshot:
+
+## Description:
 ![Screenshot of Date Night](assets/screenshots/screenshot.PNG)
 
 The purpose of this project is to create a dating-aid website that allows the user to choose between five categories: a movie, game, television series, music, and a food recipe. These options are pick and choose between any combination of the five. The system is modular in that picked options can be removed/added at will. The final options are then saved as a single saved date entry on the website which will remain even when the page refreshes. Multiple dates can be saved on the site.
