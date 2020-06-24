@@ -6,19 +6,22 @@
     <title>Date Night</title>
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation.min.css'>
-    <link rel="stylesheet" href='Project1.css'>
+    <link rel="stylesheet" href='assets/style/Project1.css'>
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
 
 </head>
 <body>
+
+    <!-- Header and Nav Bar Options-->
+    <div class="container">
     <div class="header">
         <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
             <a class="pure-menu-heading" href="">Date Night </a><a style="color:red">&hearts;</a>
             <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
                 <a class="pure-menu-heading" href="">Date Night </a><a style="color:red">&hearts;</a>
-
                 <ul class="pure-menu-list">
+<<<<<<< HEAD
                     <li class="pure-menu-item pure-menu-selected"><a href="#movie_section" class="pure-menu-link">Movies</a></li>
     
                     <li class="pure-menu-item pure-menu-selected"><a href="#choose_game" class="pure-menu-link">Video Games</a></li>
@@ -30,20 +33,45 @@
                     <li class="pure-menu-item pure-menu-selected"><a href="#food_choice" class="pure-menu-link">Food</a></li>
     
                     <li class="pure-menu-item pure-menu-selected"><a href="#about_section" class="pure-menu-link">About</a></li>
+=======
+                    <li class="pure-menu-item"><a href="#movieDiv" class="pure-menu-link">Movies</a></li>
+                    <li class="pure-menu-item"><a href="#gameDiv" class="pure-menu-link">Video Games</a></li>
+                    <li class="pure-menu-item"><a href="#tvDiv" class="pure-menu-link">TV Shows</a></li>
+                    <li class="pure-menu-item"><a href="#musicDiv" class="pure-menu-link">Music</a></li>
+                    <li class="pure-menu-item"><a href="#foodDiv" class="pure-menu-link">Food</a></li>
+                    <li class="pure-menu-item"><a href="#aboutDiv" class="pure-menu-link">About</a></li>
+>>>>>>> 322abee752e6bd50bf27c6500266c2d4a9d2137a
                 </ul>
             </div>
         </div>
     </div>
+</div>
     <div class="splash-container">
         <div class="splash">
-            <h1 class="splash-head"><img src="images/datenight.jpg"></h1> 
+            <h1 class="splash-head"><img src="images/datenight.jpg" height="100px" width="350px"></h1> 
             <p class="splash-subhead">
                 The modern solution to your date night planning woes.
             </p>
-        </div>
+        </div><br>
     </div>
+<<<<<<< HEAD
     <div class="content-wrapper" id="movie_section">
+=======
+    <div class="content-wrapper">
+        <div class="ribbon l-box-lrg pure-g">
+            <div id="directionsDiv" class="is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                <h2 class="content-head content-head-ribbon">Here's how this works...</h2>
+                <h5 class="content-subhead">
+                    <i class="fa fa-rocket"></i>
+                    Ever set up a date without a plan? We all have, but now Date Night is here to help. Just type in a favorite movie, game, show, or band and get a curated list of recommendations based on your input to keep an element of surprise for your evening. And for dinner, just type in something you have from your fridge to get a list of several recipes to make yourself look like Emeril. Your date summary will appear at the bottom, and you can even go back and view past date histories to see what worked and what flopped. Happy Dating!
+                </h5>        
+            </div>
+        </div>  
+>>>>>>> 322abee752e6bd50bf27c6500266c2d4a9d2137a
         <div class="content">
+            <div id="movieDiv" class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                <img id="movieImg" height="300px" width="450px alt="Movie Theater" class="pure-img-responsive" src="images/theaterpic.jpg">
+            </div>
             <h2 class="content-head is-center">Choose your movie</h2>
             <div class="pure-g">
                 <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
@@ -58,8 +86,8 @@
             </div>
         </div>
         <div class="ribbon l-box-lrg pure-g">
-            <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-                <img width="100%" alt="File Icons" class="pure-img-responsive" src="images/gamenight.jpg"> 
+            <div id="gameDiv" class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                <img id="gameImg" height="300px" width="450px alt="Gaming" class="pure-img-responsive" src="images/gamenight.jpg"> 
             </div>
             <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5" id="choose_game">
                 <!-- change top margin, bring up higher -->
@@ -72,6 +100,7 @@
                 <button class="buttonB" id="gameBtn">Search</button>
                 <div class="gameResults"></div>
             </div>
+<<<<<<< HEAD
         </div>    
         <br></br>
         <br></br>
@@ -79,6 +108,14 @@
         <br></br>
         <div class="content-wrapper">
             <div class="content" id="choose_show">
+=======
+        </div>
+        <div>
+            <div class="content">
+                <div id="tvDiv" class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                    <img id="tvImg" height="300px" width="450px alt="Watching TV" class="pure-img-responsive" src="images/tv_date.jpg"> 
+                </div>
+>>>>>>> 322abee752e6bd50bf27c6500266c2d4a9d2137a
                 <h2 class="content-head is-center">Choose your show</h2>
                 <div class="pure-g">
                     <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
@@ -92,6 +129,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
         <div class="ribbon l-box-lrg pure-g">
             <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
                 <img width="100%" alt="File Icons" class="pure-img-responsive" src="images/gamenight.jpg"> 
@@ -112,6 +150,31 @@
             <h2 class="content-head is-center">Choose your dinner</h2>
             <div class="pure-g">
                 <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+=======
+            <div class="ribbon l-box-lrg pure-g">
+                <div id="musicDiv" class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                    <img id="musicImg" height="300px" width="450px alt="Listening to music" class="pure-img-responsive" src="images/music.jpg"> 
+                </div>
+                <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+                    <!-- change top margin, bring up higher -->
+                    <h2 class="content-head content-head-ribbon">Choose your tunes</h2>
+                    <h3 class="content-subhead">
+                        <i class="fa fa-rocket"></i>
+                        Type your favorite band:
+                    </h3>
+                    <input id="musicIn" type="text">
+                    <button class="buttonB" id="musicBtn">Search</button>
+                    <div class="musicResults"></div> 
+                </div>
+            </div>    
+            <div class="content">
+                <div id="foodDiv" class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                    <img id="foodImg" height="300px" width="450px alt="Cooking dinner" class="pure-img-responsive" src="images/dinner.jpg"> 
+                </div>
+                <h2 class="content-head is-center">Choose your dinner</h2>
+                <div class="pure-g">
+                    <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+>>>>>>> 322abee752e6bd50bf27c6500266c2d4a9d2137a
                         <h3 class="content-subhead">
                             <i class="fa fa-rocket"></i>
                             Type the main ingredient:
@@ -119,28 +182,27 @@
                         <input id="foodIn" type="text">
                         <button class='buttonA' id="foodBtn">Search</button>
                         <div class="foodResults"></div> 
+                    </div>
                 </div>
             </div>
-        </div>
 
             <div class="ribbon l-box-lrg pure-g">
                 <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-                    <img width="100%" alt="File Icons" class="pure-img-responsive" src="images/datenight.jpg"> 
                 </div>
-                <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+                <div class="pure-u-1 is-center pure-u-md-1-2 pure-u-lg-3-5">
                     <!-- change top margin, bring up higher -->
-                    <h2 class="content-head content-head-ribbon">Date Summary</h2>
-                        <button class="finalBtn" id="renderBtn">Show Date</button>
-                        <button class="finalBtn" id="listBtn">Show Date List</button>
-                            <div class="date"></div>
-                            <div class="movie"></div>
-                            <div class="show"></div>
-                            <div class="game"></div>
-                            <div class="music"></div>
-                            <div class="food"></div>
+                    <button class="finalBtn" id="renderBtn">Show Date Summary</button>
+                    <button class="finalBtn" id="listBtn">View Past Dates</button>
+                    <div class="date"></div>
+                    <div class="movie"></div>
+                    <div class="show"></div>
+                    <div class="game"></div>
+                    <div class="music"></div>
+                    <div class="food"></div>
                 </div>  
             </div>    
 
+<<<<<<< HEAD
                 <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
 
                     <!-- Can be in the about section ??? -->
@@ -150,12 +212,19 @@
                         Are you nervouse about an upcoming date? Are you panicking because you don't feel prepared? Look no further than Date Night! We are a team of dedicated date experts here to help you set up the perfect romantic evening! This website will help you find the perfect game, movie, or television series to create the perfect mood. Choose any of the options above and tailor them to your personal tastes. Dinner and a movie? Game night? Bingeing your favorite show with a partner? We have it all!
                     </p>
                 </div>
+=======
+            <div id="aboutDiv" class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                <h4>About Date Night</h4>
+                <p>
+                    We are a team of dedicated date experts and we're here to help you set up the perfect romantic evening! Choose any of the options above and tailor them to your personal tastes. Dinner and a movie? Game night? Bingeing your favorite show with a partner? We have it all!
+                </p>
+>>>>>>> 322abee752e6bd50bf27c6500266c2d4a9d2137a
             </div>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="script.js"></script>
+    <script src="assets/script/script.js"></script>
 </body>
 </html>

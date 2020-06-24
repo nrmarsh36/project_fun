@@ -74,11 +74,133 @@ a.pure-button-primary {
     font-size: 120%;
 }
 
+/* buttons for white sections */
+.buttonA {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: larger;
+    border-color: #1f8dd6;
+    color: #fff;
+    box-shadow: 0 0 40px 40px #1f8dd6 inset, 0 0 0 0 #1f8dd6;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+  }
+  .buttonA:hover {
+    box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
+    color: #2d3e50;
+}
+/* buttons for blue sections */
+.buttonB {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: larger;
+    border-color: #1f8dd6;
+    color: #fff;
+    box-shadow: 0 0 40px 40px #1f8dd6 inset, 0 0 0 0 #1f8dd6;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+  }
+  .buttonB:hover {
+    box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
+    color: white;
+}
+/* buttons for keeping options to add to date summary */
+.keep {
+    margin-bottom: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: larger;
+    border: solid 5px #1f8dd6;
+    color: white;
+    background: rgb(175, 175, 175);
+}
+    .keep:hover{
+        box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
+        color: white;
+    }
+    .keep:focus{
+        box-shadow: 0 0 10px 0 #04a028 inset, 0 0 10px 4px #04a028;
+        border: solid 5px #04a028;
+    }
+
+/* buttons for removing options from list */
+.toss {
+    margin-bottom: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: larger;
+    border: solid 5px #1f8dd6;
+    color: white;
+    background: rgb(175, 175, 175);
+}  
+    .toss:hover{
+        box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
+        color: white;
+    }
+/* button for date summary */
+.finalBtn {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 30px;
+    font-size: 6rem;
+    border-color: #1f8dd6;
+    color: #fff;
+    box-shadow: 0 0 40px 40px #1f8dd6 inset, 0 0 0 0 #1f8dd6;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+  }
+  .finalBtn:hover {
+    box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
+    color: white;
+}
+
 /* styling the date button line 73 on js script - carson */
 .dateBtn {
-    color: rgba(255, 255, 255, 0.767);
-    font-size: 20px;
+    margin-bottom: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: larger;
+    border: solid 5px #1f8dd6;
+    color: white;
+    background: rgb(175, 175, 175);
 }
+    .dateBtn:hover {
+        box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
+        color: white;
+    }
+
+#saveNew {
+    margin-bottom: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: larger;
+    border: solid 5px #1f8dd6;
+    color: white;
+    background: rgb(175, 175, 175);
+}
+    #saveNew:hover {
+        box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
+        color: white;
+    }
+
+
+#deleteDate {
+    margin-bottom: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: larger;
+    border: solid 5px #1f8dd6;
+    color: white;
+    background: rgb(175, 175, 175);
+}
+<<<<<<< HEAD:Project1.css
 /* styling the save date button line 97 on js script - carson */
 #saveDate {
     color: rgba(255, 255, 255, 0.767);
@@ -98,7 +220,28 @@ a.pure-button-primary {
     color: rgba(255, 255, 255, 0.767);
     font-size: 20px;
     padding-right: 8px;
+=======
+    #deleteDate:hover {
+        box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
+        color: white;
+    }
+
+/* styling the save date button line 97 on js script */
+#saveDate {
+    margin-bottom: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: larger;
+    border: solid 5px #1f8dd6;
+    color: white;
+    background: rgb(175, 175, 175);
+>>>>>>> 322abee752e6bd50bf27c6500266c2d4a9d2137a:assets/style/Project1.css
 }
+    #saveDate:hover {
+        box-shadow: 0 0 10px 0 #1f8dd6 inset, 0 0 10px 4px #1f8dd6;
+        color: white;
+    }
 
 
 /*menu - top of the page*/
@@ -138,6 +281,9 @@ a.pure-button-primary {
     color: #AECFE5;
 }
 
+.headColor {
+     color: #7f8c8d;    
+}
 
 /*blue top section that appears on the page.*/
 
@@ -147,7 +293,7 @@ a.pure-button-primary {
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
     width: 100%;
-    height: 88%;
+    height: 85%;
     top: 0;
     left: 0;
     position: fixed !important;
@@ -162,6 +308,7 @@ a.pure-button-primary {
     top: 10px; left: 0; bottom: 0; right: 0;
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 12rem;
 }
 
 /* This is the main heading that appears on the blue section */
@@ -170,7 +317,7 @@ a.pure-button-primary {
     font-weight: bold;
     color: white;
     border: 3px solid white;
-    padding: 1em 1.6em;
+    /* padding: 1em 1.6em; */
     font-weight: 100;
     border-radius: 5px;
     line-height: 1em;
@@ -187,7 +334,7 @@ a.pure-button-primary {
 .content-wrapper {
     /* These styles are required for the "scroll-over" effect */
     position: absolute;
-    top: 87%;
+    top: 60.5%;
     width: 100%;
     min-height: 12%;
     z-index: 2;
@@ -227,7 +374,25 @@ a.pure-button-primary {
     color: #aaa;
 }
 
+<<<<<<< HEAD:Project1.css
 /* styling for date summary text */
+=======
+#directionsDiv {
+    background: #2d3e50;
+}
+
+/* borders for images */
+#movieImg,
+#gameImg,
+#tvImg,
+#musicImg,
+#foodImg {
+    padding: 10px;
+    border: solid 2px #1f8dd6;
+    border-radius: 5px;
+    line-height: 1em;
+}
+>>>>>>> 322abee752e6bd50bf27c6500266c2d4a9d2137a:assets/style/Project1.css
 
 #dateName {
     color: white
@@ -251,14 +416,14 @@ a.pure-button-primary {
         }
 
     /* We increase the height of the splash-container */
-/*    .splash-container {
+   .splash-container {
         height: 500px;
-    }*/
+    }
 
     /* We decrease the width of the .splash, since we have more width
     to work with */
     .splash {
-        width: 50%;
+        width: 25%;
         height: 50%;
     }
 
@@ -277,6 +442,13 @@ a.pure-button-primary {
 /*DESKTOP*/
 @media (min-width: 78em) {
     /* increase the header font size  */
+    .splash-container {
+        height: 480px;
+    }
+    .splash {
+        width: 25%;
+        height: 50%;
+    }
     .splash-head {
         font-size: 300%;
     }

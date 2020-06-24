@@ -1,13 +1,26 @@
+<<<<<<< HEAD
 # project_fun
+=======
+# Date Night
+>>>>>>> 322abee752e6bd50bf27c6500266c2d4a9d2137a
 
 ## Team: project_fun
 * Carson
 * Nate
 * Rocio
 * Adam
+<<<<<<< HEAD
 ## Links:
 Link to repo: <https://github.com/nrmarsh36/project_fun>
 Link to page: <https://nrmarsh36.github.io/project_fun/>
+=======
+
+## Links:
+Link to repo: <https://github.com/nrmarsh36/project_fun>
+
+Link to page: <https://nrmarsh36.github.io/project_fun/>
+
+>>>>>>> 322abee752e6bd50bf27c6500266c2d4a9d2137a
 ## Technology Used:
 * Pure.css for responsive layout <https://purecss.io/>
 * jQuery for dynamic HTML & CSS <https://jquery.com/>
@@ -15,7 +28,12 @@ Link to page: <https://nrmarsh36.github.io/project_fun/>
 * $.ajax API calls to the spoonacular and tastedive API's
 * spoonacular API for getting recipe results <https://spoonacular.com/food-api>
 * tastedive API for getting movie, TV, video game, and music results <https://tastedive.com/read/api>
+<<<<<<< HEAD
 ## Screenshot:
+=======
+
+## Description:
+>>>>>>> 322abee752e6bd50bf27c6500266c2d4a9d2137a
 ![Screenshot of Date Night](assets/screenshots/screenshot.PNG)
 
 The purpose of this project is to create a dating-aid website that allows the user to choose between five categories: a movie, game, television series, music, and a food recipe. These options are pick and choose between any combination of the five. The system is modular in that picked options can be removed/added at will. The final options are then saved as a single saved date entry on the website which will remain even when the page refreshes. Multiple dates can be saved on the site.
@@ -28,4 +46,8 @@ The meat of the page is made up of the five search bar sections dedicated to mov
 <!--  -->
 Near the bottom of the page is the Date Summary section, which features two components. The first is the two options to show either the current date or the date list (showing multiple date entries if they exist). The second component comes into play when either of those options are selected, with a dropdown portion that shows the contents of the date or the list of dates. Clicking on the list of dates creates a dropdown that shows the actual list with the option to click on them and show the date's contents.
 
+<<<<<<< HEAD
 At the bottom of the page is an about section which summarizes the purpose of the website and user instructions.
+=======
+At the bottom of the page is an about section which summarizes the purpose of the website and user instructions.
+>>>>>>> 322abee752e6bd50bf27c6500266c2d4a9d2137a
