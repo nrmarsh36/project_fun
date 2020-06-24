@@ -13,6 +13,8 @@ Link to page: <https://nrmarsh36.github.io/project_fun/>
 
 ## Technology Used:
 * Pure.css for responsive layout <https://purecss.io/>
+* Foundation.css for responsive layout <https://get.foundation/>
+* Bootstrap.css for responsive layout <https://getbootstrap.com/docs/3.4/css/>
 * jQuery for dynamic HTML & CSS <https://jquery.com/>
 * localStorage with JSON to retain saved date plans after a browser refresh
 * $.ajax API calls to the spoonacular and tastedive API's
